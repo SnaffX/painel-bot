@@ -1,0 +1,9 @@
+{
+"BOT_ID":"",
+"BOT_SECRET":"",
+"BOT_TOKEN":"",
+"BOT_OWNER":"",
+"BOT_CALLBACK":"http://localhost:3000",
+
+"PAINEL_PORT":"3000"
+}
