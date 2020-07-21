@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    BOT - Dashboard
+    BOT - Servidores
   </title>
   <link rel="canonical" href="https://www.creative-tim.com/product/black-dashboard" />
   <meta name="keywords" content="Painel de controle">
@@ -22,77 +22,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 </head>
 <body class="sidebar-mini">
-  <div class="wrapper">
-    <div class="navbar-minimize-fixed">
-      <button class="minimize-sidebar btn btn-link btn-just-icon">
-        <i class="tim-icons icon-align-center visible-on-sidebar-regular text-muted"></i>
-        <i class="tim-icons icon-bullet-list-67 visible-on-sidebar-mini text-muted"></i>
-      </button>
-    </div>
-    <div class="sidebar">
-      <div class="sidebar-wrapper">
-        <div class="logo">
-          <a href="javascript:void(0)" class="simple-text logo-normal">
-            <center>
-              Painel
-            </center>
-          </a>
-        </div>
-        <ul class="nav">
-          <li class="active">
-            <a href="/">
-              <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Dashboard</p>
-            </a>
-        </li>
-          <li>
-            <a data-toggle="collapse" href="#admin">
-              <i class="tim-icons icon-components"></i>
-              <p>
-                Admin
-                <b class="caret"></b>
-              </p>
-            </a>
-            <div class="collapse" id="admin">
-              <ul class="nav">
-                <li>
-                  <a href="#">
-                    <span class="sidebar-mini-icon">ADM</span>
-                    <span class="sidebar-normal"> Admin </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>          
-        
-        </ul>
-      </div>
-    </div>
     <div class="main-panel">
-      <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-minimize d-inline">
-              <button class="minimize-sidebar btn btn-link btn-just-icon" rel="tooltip" data-original-title="Sidebar toggle" data-placement="right">
-                <i class="tim-icons icon-align-center visible-on-sidebar-regular"></i>
-                <i class="tim-icons icon-bullet-list-67 visible-on-sidebar-mini"></i>
-              </button>
             </div>
-            <div class="navbar-toggle d-inline">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="#">Lista de Servidores</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
               <li class="search-bar input-group">
@@ -125,7 +62,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
-                  <li class="nav-link"><a href="/profile" class="nav-item dropdown-item">Perfil</a></li>
+                  <li class="nav-link"><a href="#!" class="nav-item dropdown-item">Perfil</a></li>
                   </li>
                   <li class="nav-link">
                     <a href="javascript:void(0)" class="nav-item dropdown-item">Configurações</a>
@@ -144,124 +81,20 @@
 
       <div class="content">
         <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-5">
-                    <div class="info-icon text-center icon-warning">
-                      <i class="tim-icons icon-tv-2"></i>
-                    </div>
-                  </div>
-                  <div class="col-7">
-                    <div class="numbers">
-                      <p class="card-category">Bots</p>
-                      <h3 class="card-title" id="servidores">0</h3>
-                    </div>
-                  </div>
+        <div style="display: grid;grid-template-columns: repeat(4, 1fr);grid-auto-rows: 420px;grid-gap: 10px;">
+        <% for(var i=0; i < guilds.length; i++) { %>
+        <div class="card" style="width: 15rem; ">
+            <img class="card-img-top" style="width: 20; height: 20;" src="<%=icones[i]%>" alt="Card image cap">
+                <div class="card-body">
+                <center>
+                    <p class="card-text" style="font-size: 15px; font-weight:bold;"><%=guilds[i].name%></p>
+                    <a href="/config/<%=guilds[i].id%>/inicio" class="btn btn-primary">Configurar</a>
+                </center>
+                 </div>
                 </div>
-              </div>        
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-5">
-                    <div class="info-icon text-center icon-primary">
-                      <i class="tim-icons icon-user-run"></i>
-                    </div>
-                  </div>
-                  <div class="col-7">
-                    <div class="numbers">
-                      <p class="card-category">Humanos</p>
-                      <h3 class="card-title" id="usuarios">0</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-5">
-                    <div class="info-icon text-center icon-primary">
-                      <i class="tim-icons icon-paper"></i>
-                    </div>
-                  </div>
-                  <div class="col-7">
-                    <div class="numbers">
-                      <p class="card-category">Canais</p>
-                      <h3 class="card-title" id="canais">0</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-5">
-                    <div class="info-icon text-center icon-primary">
-                      <i class="tim-icons icon-compass-05"></i>
-                    </div>
-                  </div>
-                  <div class="col-7">
-                    <div class="numbers">
-                      <p class="card-category">Admins</p>
-                      <h3 class="card-title">0</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div style="display: grid;grid-template-columns: repeat(4, 1fr);grid-auto-rows: 420px;grid-gap: 10px;
-        ">
-            <div class="card" style="width: 15rem; ">
-                <img class="card-img-top" style="width: 20; height: 20;" src="https://cdn.discordapp.com/icons/696194101707538453/0de088c98b3418654c98e2f0e6ee509b.png?size=2048" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <p class="card-text" style="font-size: 15px; font-weight:bold;">Servidor do Xyaon</p>
-                        <a href="#" class="btn btn-primary">Configurar</a>
-                    </center>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img class="card-img-top" style="width: 20; height: 20;" src="https://cdn.discordapp.com/icons/696194101707538453/0de088c98b3418654c98e2f0e6ee509b.png?size=2048" alt="Card image cap">
-                        <div class="card-body">
-                        <center>
-                            <p class="card-text" style="font-size: 15px; font-weight:bold;">Servidor do Xyaon</p>
-                            <a href="#" class="btn btn-primary">Configurar</a>
-                        </center>
-                        </div>
-                    </div>
+            <% } %>
         </div>                
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                Servidor de Suporte
-              </a>
-            </li>
-          </ul>
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> Todos os Direitos Reservados a<i class="tim-icons icon-heart-2"></i>
-            <a href="javascript:void(0)" target="_blank">Painel</a>
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <div class="fixed-plugin">

@@ -1,11 +1,12 @@
 {
-"BOT_ID":"",
-"BOT_SECRET":"",
-"BOT_TOKEN":"",
-"BOT_OWNER":"",
-"BOT_CALLBACK":"http://localhost:3000/callback",
-
-"PAINEL_PORT":"3000",
-"MONGO_URL":"",
-"CHANNEL_LOGIN":"ID"
+    "BOT_ID":"",
+    "BOT_SECRET":"",
+    "BOT_TOKEN":"",
+    "BOT_OWNER":"",
+    "BOT_CALLBACK":"http://localhost:3000/callback",
+    
+    "PAINEL_PORT":"3000",
+    "MONGO_URL":"",
+    "CHANNEL_LOGIN":"",
+    "PREFIXO":"!"
 }

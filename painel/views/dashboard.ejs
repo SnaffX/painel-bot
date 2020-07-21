@@ -40,9 +40,9 @@
         </div>
         <ul class="nav">
           <li class="active">
-            <a href="/">
+            <a href="/guilds">
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Dashboard</p>
+              <p>Servidores</p>
             </a>
         </li>
           <li>
@@ -56,7 +56,7 @@
             <div class="collapse" id="admin">
               <ul class="nav">
                 <li>
-                  <a href="#">
+                  <a href="#!">
                     <span class="sidebar-mini-icon">ADM</span>
                     <span class="sidebar-normal"> Admin </span>
                   </a>
@@ -86,7 +86,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="#!">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -156,7 +156,7 @@
                   <div class="col-7">
                     <div class="numbers">
                       <p class="card-category">Bots</p>
-                      <h3 class="card-title" id="servidores">0</h3>
+                      <h3 class="card-title" id="servidores"><%=client.guilds.cache.get(guilda.id).members.cache.filter(x => !x.user.bot).size%></h3>
                     </div>
                   </div>
                 </div>
@@ -175,7 +175,7 @@
                   <div class="col-7">
                     <div class="numbers">
                       <p class="card-category">Humanos</p>
-                      <h3 class="card-title" id="usuarios">0</h3>
+                      <h3 class="card-title" id="usuarios"><%=client.guilds.cache.get(guilda.id).members.cache.filter(x => x.user.bot).size%></h3>
                     </div>
                   </div>
                 </div>
@@ -194,7 +194,7 @@
                   <div class="col-7">
                     <div class="numbers">
                       <p class="card-category">Canais</p>
-                      <h3 class="card-title" id="canais">0</h3>
+                      <h3 class="card-title" id="canais"><%=client.guilds.cache.get(guilda.id).channels.cache.size%></h3>
                     </div>
                   </div>
                 </div>
@@ -213,7 +213,7 @@
                   <div class="col-7">
                     <div class="numbers">
                       <p class="card-category">Admins</p>
-                      <h3 class="card-title">0</h3>
+                      <h3 class="card-title"><%=client.guilds.cache.get(guilda.id).members.cache.filter(x => x.hasPermission("ADMINISTRATOR")).size%></h3>
                     </div>
                   </div>
                 </div>
@@ -222,26 +222,7 @@
           </div>
         </div>
         <div class="row">
-        <div style="display: grid;grid-template-columns: repeat(4, 1fr);grid-auto-rows: 420px;grid-gap: 10px;
-        ">
-            <div class="card" style="width: 15rem; ">
-                <img class="card-img-top" style="width: 20; height: 20;" src="https://cdn.discordapp.com/icons/696194101707538453/0de088c98b3418654c98e2f0e6ee509b.png?size=2048" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <p class="card-text" style="font-size: 15px; font-weight:bold;">Servidor do Xyaon</p>
-                        <a href="#" class="btn btn-primary">Configurar</a>
-                    </center>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img class="card-img-top" style="width: 20; height: 20;" src="https://cdn.discordapp.com/icons/696194101707538453/0de088c98b3418654c98e2f0e6ee509b.png?size=2048" alt="Card image cap">
-                        <div class="card-body">
-                        <center>
-                            <p class="card-text" style="font-size: 15px; font-weight:bold;">Servidor do Xyaon</p>
-                            <a href="#" class="btn btn-primary">Configurar</a>
-                        </center>
-                        </div>
-                    </div>
+    
         </div>                
       </div>
       <footer class="footer">
