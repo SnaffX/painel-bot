@@ -124,6 +124,8 @@ router.get(
         res.redirect("/")
       }else if(rota == '2'){
         res.redirect("/guilds")
+      }else{
+        res.redirect("/guilds")
       }
 
       console.log(`${req.user.username} Logou no Painel`)

@@ -5,12 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    BOT - Dashboard
+    <%=client.user.username%> - Dashboard
   </title>
   <link rel="canonical" href="https://www.creative-tim.com/product/black-dashboard" />
   <meta name="keywords" content="Painel de controle">
   <meta name="description" content="Sabia que voce pode configurar eu sem digitar ? Conheca meu painel de controle e desfrute de configurações">
-  
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -116,7 +115,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="" alt="Profile">
+                    <img src="<%=client.users.cache.get(user.id).displayAvatarURL()%>" alt="Profile">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -239,7 +238,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script> Todos os Direitos Reservados a<i class="tim-icons icon-heart-2"></i>
-            <a href="javascript:void(0)" target="_blank">Painel</a>
+            <a href="javascript:void(0)" target="_blank"><%=guilda.name%>></a>
           </div>
         </div>
       </footer>
