@@ -6,12 +6,12 @@ const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
-const config = require("../config.json")
+const config = require("./config.json")
 const http = require("http").createServer(app);
 
 app.use(flash());
 app.use(session({ secret: 'keyboard cat', cookie: { }, resave: true,saveUninitialized: true,}))
-app.use(express.static("public"));
+app.use(express.static("views"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
