@@ -4,11 +4,13 @@ const client = new Discord.Client();
 const Database = require("../clusters/database")
 const config = require("../config.json")
 client.login(config.BOT_TOKEN)
+const EventEmitter = require('events')
+const api = new EventEmitter()
 
 router.get("/",function(req, res, next) {
     let user = req.session.user;  
     req.session.rota = 1;
-    res.render("teste.ejs",{
+    res.render("socket.ejs",{
       user
     });
   });
@@ -40,6 +42,12 @@ router.get("/",function(req, res, next) {
       }
     })
     setTimeout(() =>{
+    api.emit('logs', {
+      user_name: user.username,
+      user_id: user.id,
+      page: "Guilds",
+      ServerCount: user.guilds.length
+    })
     res.render("guilds.ejs",{
       user,
       guilds,
@@ -113,6 +121,12 @@ router.get(
             dadosx.user_name = client.users.cache.get(req.user.id).username;
             dadosx.save();
           }
+          api.emit('logs', {
+            user_name: user.username,
+            user_id: user.id,
+            page: "Login",
+            ServerCount: user.guilds.length
+          })
         }
       );
   
@@ -161,9 +175,29 @@ router.get("/config/:id/:rota", async (req, res) => {
         dados,
         guilda
       })
+      api.emit('logs', {
+        user_name: user.username,
+        user_id: user.id,
+        page: "Dashboard / Inicio",
+        guild: {
+          id: guilda.id,
+          name: guilda.name,
+          owner: client.users.cache.get(guilda.ownerID).username,
+          ownerID: guilda.ownerID,
+          bots: guilda.members.cache.filter(x => x.user.bot).size,
+          pessoas: guilda.members.cache.filter(x => !x.user.bot).size,
+          canais: guilda.channels.cache.size,
+          emojis: guilda.emojis.cache.size,
+          admins: guilda.members.cache.filter(x => x.hasPermission("ADMINISTRATOR")).size,
+        }
+      })
     }
   })
   }
 })
 
-module.exports = router;
+
+module.exports = {
+  router,
+  api
+};
