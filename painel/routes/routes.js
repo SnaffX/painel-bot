@@ -122,10 +122,10 @@ router.get(
             dadosx.save();
           }
           api.emit('logs', {
-            user_name: user.username,
-            user_id: user.id,
+            user_name: req.user.username,
+            user_id: req.user.id,
             page: "Login",
-            ServerCount: user.guilds.length
+            ServerCount: req.user.guilds.length
           })
         }
       );
